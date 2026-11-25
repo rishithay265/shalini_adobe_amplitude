@@ -1,0 +1,2 @@
+import { describe, expect, it } from "vitest"; import { extractVideoIds } from "../lib/playlist"; import { chunks } from "../lib/ingestion";
+describe("playlist parsing",()=>{it("dedupes IDs",()=>expect(extractVideoIds("https://youtube.com/watch?v=j_iwGC-dSug https://youtu.be/j_iwGC-dSug")).toEqual(["j_iwGC-dSug"]));it("chunks with overlap",()=>{const result=chunks("x".repeat(2000));expect(result.length).toBe(2);expect(result[0]).toHaveLength(1400)})});

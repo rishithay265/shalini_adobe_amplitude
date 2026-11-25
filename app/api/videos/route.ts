@@ -1,0 +1,1 @@
+import { NextResponse } from "next/server"; import { db } from "@/lib/db"; export async function GET(){return NextResponse.json(await db.video.findMany({select:{id:true,title:true,durationSeconds:true,status:true,summary:true},orderBy:{createdAt:"asc"}}))}
